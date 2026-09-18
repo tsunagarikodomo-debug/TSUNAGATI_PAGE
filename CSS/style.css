@@ -636,3 +636,37 @@ main {
     height: 260px;
   }
 }
+
+/* スマホ用動画とメニューの配置 */
+@media (max-width: 768px) {
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+
+  .site-header .header-video {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    align-self: auto;
+    z-index: auto;
+    object-fit: contain;
+  }
+
+  .site-header .header-inner {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-wrap: nowrap;
+    padding: 12px;
+  }
+
+  .site-header nav {
+    flex: none;
+    width: min(200px, 100%);
+    overflow: visible;
+  }
+}
