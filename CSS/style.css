@@ -531,3 +531,34 @@ main {
     height: 280px;
   }
 }
+
+/* スマホのヘッダーを調整 */
+@media (max-width: 768px) {
+
+  .site-header {
+    height: 360px;
+  }
+
+  /* 動画をヘッダーいっぱいに表示 */
+  .site-header .header-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* ロゴとメニューを枠内に収める */
+  .site-header .header-inner {
+    flex-wrap: nowrap;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  /* 入りきらないメニューはスクロール */
+  .site-header nav {
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
