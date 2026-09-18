@@ -122,6 +122,31 @@ nav a:hover {
   background-color: #fff9db;
 }
 
+nav a:nth-child(1) {
+  background-color: #ffe08a;
+}
+
+nav a:nth-child(2) {
+  background-color: #a8e6cf;
+}
+
+nav a:nth-child(3) {
+  background-color: #ffaaa5;
+}
+
+nav a:nth-child(4) {
+  background-color: #b5d8ff;
+}
+
+nav a:nth-child(5) {
+  background-color: #d5b8ff;
+}
+
+nav a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18);
+}
+
 /* ===== ページ全体 ===== */
 
 main {
