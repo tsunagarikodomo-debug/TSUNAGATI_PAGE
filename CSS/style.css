@@ -1,5 +1,6 @@
-
-/* ===== 共通設定 ===== */
+/* ========================================
+   1. 共通設定
+======================================== */
 
 * {
   box-sizing: border-box;
@@ -59,28 +60,69 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* ===== ヘッダー ===== */
 
-header {
+/* ========================================
+   2. ヘッダー・背景動画
+======================================== */
+
+.site-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  isolation: isolate;
+  overflow: hidden;
   background-color: #fff3a6;
   border-bottom: 4px solid #f2cf4a;
   box-shadow: 0 2px 8px rgba(150, 120, 20, 0.15);
 }
 
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 18px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 24px;
+/* 動画の縦横比を保ち、全体を表示 */
+.site-header .header-video {
+  position: relative;
+  inset: auto;
+  z-index: -2;
+  grid-area: 1 / 1;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
 }
 
+/* 動画の上に半透明の背景を重ねない */
+.site-header::before {
+  display: none;
+}
+
+/* ロゴとメニューを動画の左側に重ねる */
+.site-header .header-inner {
+  position: absolute;
+  inset: 0;
+  grid-area: 1 / 1;
+  align-self: start;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+}
+
+/* ロゴとサイト名 */
 .site-brand {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 12px;
   max-width: 100%;
   color: inherit;
@@ -88,66 +130,60 @@ header {
 }
 
 .header-logo {
-  width: 72px;
-  height: 72px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .site-name {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
-nav {
+/* 縦並びのメニュー */
+.site-header nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px 8px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 6px;
+
+  width: min(200px, 100%);
+  min-height: 0;
+  overflow-y: auto;
 }
 
-nav a {
+/* メニューのボタン */
+.site-header nav a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
   min-height: 44px;
-  padding: 8px 10px;
+  padding: 8px 14px;
+
   border-radius: 8px;
-  color: inherit;
+  background-color: #fffdf0;
+  color: #5c4a2f;
   font-weight: bold;
+  text-align: left;
   text-decoration: none;
 }
 
-nav a:hover {
-  background-color: #fff9db;
-}
-
-nav a:nth-child(1) {
-  background-color: #ffe08a;
-}
-
-nav a:nth-child(2) {
-  background-color: #a8e6cf;
-}
-
-nav a:nth-child(3) {
-  background-color: #ffaaa5;
-}
-
-nav a:nth-child(4) {
-  background-color: #b5d8ff;
-}
-
-nav a:nth-child(5) {
-  background-color: #d5b8ff;
-}
-
-nav a:hover {
+.site-header nav a:hover {
+  background-color: #fff3a6;
   transform: translateY(-3px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18);
 }
 
-/* ===== ページ全体 ===== */
+
+/* ========================================
+   3. ページ全体・見出し
+======================================== */
 
 main {
   max-width: 1120px;
@@ -170,11 +206,22 @@ main {
   color: #75602d;
 }
 
-/* ===== ホームの紹介 ===== */
+
+/* ========================================
+   4. ホームの紹介
+======================================== */
 
 .hero {
   padding: 56px 0 40px;
   text-align: center;
+}
+
+.hero-message {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.hero .button-group {
+  justify-content: center;
 }
 
 .tags {
@@ -195,15 +242,10 @@ main {
   font-size: 0.85rem;
 }
 
-.hero-message {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-}
 
-.hero .button-group {
-  justify-content: center;
-}
-
-/* ===== 案内・カード ===== */
+/* ========================================
+   5. 案内・カード・リスト
+======================================== */
 
 .notice {
   padding: 28px;
@@ -246,7 +288,10 @@ main {
   margin-top: 10px;
 }
 
-/* ===== 開催情報・振込先 ===== */
+
+/* ========================================
+   6. 開催情報・振込先
+======================================== */
 
 .info-list {
   margin: 0;
@@ -277,7 +322,10 @@ main {
   margin: 0;
 }
 
-/* ===== ボタン・リンク ===== */
+
+/* ========================================
+   7. ボタン・連絡先リンク
+======================================== */
 
 .button-group {
   display: flex;
@@ -293,10 +341,12 @@ main {
   min-height: 48px;
   max-width: 100%;
   padding: 12px 24px;
+
   border: 2px solid #f2cf4a;
   border-radius: 12px;
   background-color: #f2cf4a;
   color: #483719;
+
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -307,6 +357,7 @@ main {
   background-color: #e5bc2e;
 }
 
+/* 枠線付きのボタン */
 .button-outline {
   border-color: #9a7730;
   background-color: #fff;
@@ -336,7 +387,10 @@ main {
   font-weight: bold;
 }
 
-/* ===== 活動への思い ===== */
+
+/* ========================================
+   8. 活動への思い
+======================================== */
 
 .support-message {
   padding: 32px;
@@ -344,78 +398,10 @@ main {
   background-color: #edf3e5;
 }
 
-/* ===== スマホ用 ===== */
 
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .header-logo {
-    width: 56px;
-    height: 56px;
-  }
-
-  .site-name {
-    font-size: 1.1rem;
-  }
-
-  nav {
-    width: 100%;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  nav a {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
-
-  main {
-    padding: 0 16px 48px;
-  }
-
-  .hero {
-    padding: 36px 0 28px;
-  }
-
-  .page-intro {
-    padding-top: 32px;
-  }
-
-  .section {
-    margin-top: 32px;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .card,
-  .notice,
-  .support-message {
-    padding: 20px;
-  }
-
-  .button-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .button-group .button {
-    width: 100%;
-  }
-
-  .info-list > div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-}
-
-/* ===== 寄付募集の商品 ===== */
+/* ========================================
+   9. 寄付募集の商品
+======================================== */
 
 .donation-grid {
   margin-top: 24px;
@@ -441,8 +427,8 @@ main {
 .donation-body {
   display: flex;
   flex-direction: column;
-  flex: 1;
   align-items: flex-start;
+  flex: 1;
   padding: 20px;
 }
 
@@ -460,7 +446,11 @@ main {
   margin-top: auto;
 }
 
-/* 会場案内の地図 */
+
+/* ========================================
+   10. 会場の地図
+======================================== */
+
 .venue-map {
   margin: 20px 0;
   overflow: hidden;
@@ -474,74 +464,70 @@ main {
   border: 0;
 }
 
+
+/* ========================================
+   11. スマホ表示（画面幅768px以下）
+======================================== */
+
 @media (max-width: 768px) {
+
+  /* ヘッダー */
+  .site-header nav a {
+    font-size: 0.9rem;
+  }
+
+  /* ページ全体 */
+  main {
+    padding: 0 16px 48px;
+  }
+
+  .hero {
+    padding: 36px 0 28px;
+  }
+
+  .page-intro {
+    padding-top: 32px;
+  }
+
+  .section {
+    margin-top: 32px;
+  }
+
+  /* カードを1列にする */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card,
+  .notice,
+  .support-message {
+    padding: 20px;
+  }
+
+  /* 商品カードは従来どおり外側の余白なし */
+  .donation-card {
+    padding: 0;
+  }
+
+  /* ボタンを縦並びにする */
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group .button {
+    width: 100%;
+  }
+
+  /* 項目名と内容を縦に並べる */
+  .info-list > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  /* 地図の高さ */
   .venue-map iframe {
     height: 280px;
   }
-}
-
-/* ===== ヘッダーの背景動画 ===== */
-
-.site-header {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background-color: #fff3a6;
-}
-
-/* ヘッダー全体に動画を広げる */
-.header-video {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
-}
-
-/* 文字を読みやすくするための半透明の背景 */
-.site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: rgba(255, 253, 240, 0.78);
-  pointer-events: none;
-}
-
-/* ロゴとメニューを動画の上に表示 */
-.site-header .header-inner {
-  position: relative;
-}
-
-/* 動画の縦横比に合わせたヘッダー */
-.site-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-}
-
-/* 動画全体を表示する */
-.site-header .header-video {
-  position: relative;
-  inset: auto;
-  grid-area: 1 / 1;
-  align-self: center;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* ロゴとメニューを動画の上部に重ねる */
-.site-header .header-inner {
-  grid-area: 1 / 1;
-  align-self: start;
-  width: 100%;
-  min-width: 0;
-}
-
-/* 動画の上の半透明背景を非表示にする */
-.site-header::before {
-  display: none;
 }
