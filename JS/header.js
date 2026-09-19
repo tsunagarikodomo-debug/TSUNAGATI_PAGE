@@ -1,5 +1,10 @@
+const headerUrl = new URL(
+  "../HTML/header.html",
+  document.currentScript.src
+);
+
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("./header.html")
+  fetch(headerUrl)
     .then(function (response) {
       if (!response.ok) {
         throw new Error("header.htmlが見つかりません");
@@ -9,21 +14,35 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(function (data) {
       const header = document.getElementById("header");
-      header.innerHTML = data;
+      if (!header) return;
 
-      // フォルダーのURLで開いた場合もホームとして扱う
+      const template = document.createElement("template");
+      template.innerHTML = data;
+
+      // header.htmlの場所を基準にリンク・画像・動画を解決する
+      template.content.querySelectorAll("[href], [src]")
+        .forEach(function (element) {
+          ["href", "src"].forEach(function (attribute) {
+            const value = element.getAttribute(attribute);
+
+            if (value) {
+              element.setAttribute(
+                attribute,
+                new URL(value, headerUrl).href
+              );
+            }
+          });
+        });
+
+      header.replaceChildren(template.content);
+
       const currentPath = window.location.pathname.replace(
         /\/$/,
         "/index.html"
       );
 
       header.querySelectorAll("nav a").forEach(function (link) {
-        const linkPath = new URL(
-          link.href,
-          window.location.href
-        ).pathname;
-
-        if (linkPath === currentPath) {
+        if (new URL(link.href).pathname === currentPath) {
           link.setAttribute("aria-current", "page");
         }
       });

@@ -1195,3 +1195,46 @@ main {
   object-position: center;
   clip-path: circle(closest-side at 50% 50%);
 }
+
+/* プレ開催の写真と説明 */
+.report-food-main,
+.report-food-sub {
+  margin: 0;
+  min-width: 0;
+}
+
+.report-food-main {
+  margin-bottom: 24px;
+}
+
+.report-food-main img,
+.report-food-sub img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.report-food-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.65fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.report-food-text {
+  min-width: 0;
+}
+
+.report-food-main figcaption,
+.report-food-sub figcaption {
+  margin-top: 8px;
+  color: #6f614c;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .report-food-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}

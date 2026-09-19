@@ -144,15 +144,16 @@
   <!-- 代表挨拶の上に表示する動画 -->
   <div class="greeting-video">
     <video
-      controls
-      playsinline
-      preload="metadata"
-      aria-label="つながり子ども食堂の紹介動画"
-    >
-      <source src="images/greeting_movie.mp4" type="video/mp4">
-      お使いのブラウザーでは動画を再生できません。
-      <a href="images/greeting_movie.mp4">動画を開く</a>
-    </video>
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  aria-label="つながり子ども食堂の紹介動画"
+>
+  <source src="images/greeting_movie.mp4" type="video/mp4">
+  お使いのブラウザーでは動画を再生できません。
+</video>
   </div>
 
   <!-- 代表挨拶 -->
@@ -198,17 +199,11 @@
   </div>
 
   <p class="greeting-signature">
-    つながり子ども食堂<br>
-    <span class="greeting-name">代表　古賀 稜彬</span>
+    代表　古賀 稜彬
   </p>
 </div>
 
 </section>
-
-  <p class="greeting-signature">
-    つながり子ども食堂<br>
-    <span class="greeting-name">代表　古賀 稜彬</span>
-  </p>
 </div>
 
   <section class="section" aria-labelledby="news-title">
