@@ -819,9 +819,9 @@ main {
 }
 
 .sponsor-logo img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
 }
 }
