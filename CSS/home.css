@@ -437,17 +437,17 @@ body {
 }
 
 .slide-2 {
-  background-image: url("../images/hero-2.jpg");
+  background-image: url("../images/slide2.jpg");
   animation-delay: 5s;
 }
 
 .slide-3 {
-  background-image: url("../images/hero-3.jpg");
+  background-image: url("../images/slide3.jpg");
   animation-delay: 10s;
 }
 
 .slide-4 {
-  background-image: url("../images/hero-4.jpg");
+  background-image: url("../images/slide4.jpg");
   animation-delay: 15s;
 }
 
