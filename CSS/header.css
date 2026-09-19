@@ -12,13 +12,25 @@
   pointer-events: none;
 }
 
-/* トップページだけ、最初の画面を大きな動画にする */
-.site-header.is-home .header-video {
-  height: 100svh;
-  object-fit: cover;
+/* パソコン：トップページの動画を画面いっぱいに表示 */
+@media (min-width: 769px) {
+  .site-header.is-home .header-video {
+    height: 100svh;
+    object-fit: cover;
+  }
 }
 
-/* 右上の丸いボタン */
+/* スマホ：動画を横4：縦3で、切り取らずに表示 */
+@media (max-width: 768px) {
+  .site-header .header-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+}
+
+/* ひだり上の丸いボタン */
 .menu-open,
 .menu-close {
   position: fixed;
