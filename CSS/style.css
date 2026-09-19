@@ -441,6 +441,7 @@ main {
   font-weight: bold;
 }
 
+
 .donation-body .button {
   width: 100%;
   margin-top: auto;
@@ -1102,6 +1103,7 @@ main {
     padding: 24px 20px;
   }
 }
+
 
 /* ヘッダーのメニューを下端にそろえる */
 .site-header .header-inner {
