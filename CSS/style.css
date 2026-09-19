@@ -740,15 +740,16 @@ main {
 
 /* 現在表示しているページのメニュー */
 .site-header nav a[aria-current="page"] {
-  background-color: #f2cf4a;
-  color: #483719;
-  box-shadow: inset 5px 0 0 #705019;
+  background-color: #285943;
+  color: #fff;
+  box-shadow: inset 5px 0 0 #a8e6cf;
   font-weight: bold;
 }
 
-/* マウスを重ねても選択状態を保つ */
+/* マウスを重ねたとき */
 .site-header nav a[aria-current="page"]:hover {
-  background-color: #f2cf4a;
-  box-shadow: inset 5px 0 0 #705019;
+  background-color: #204936;
+  color: #fff;
+  box-shadow: inset 5px 0 0 #a8e6cf;
   transform: none;
 }
