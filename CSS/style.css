@@ -753,3 +753,352 @@ main {
   box-shadow: inset 5px 0 0 #a8e6cf;
   transform: none;
 }
+
+/* ========================================
+   活動報告
+======================================== */
+
+/* ページ冒頭 */
+.report-intro {
+  padding: 56px 0 36px;
+  text-align: center;
+}
+
+.report-intro h1 {
+  color: #285943;
+}
+
+.report-period {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 6px 20px;
+  border: 1px solid #dfcca0;
+  border-radius: 999px;
+  background-color: #fff3c7;
+  font-weight: bold;
+}
+
+/* 年ごとの移動リンク */
+.report-year-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.report-year-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid #285943;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #285943;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.report-year-links a:hover {
+  background-color: #edf3e5;
+}
+
+/* 年の見出し */
+.report-year {
+  margin-top: 32px;
+}
+
+.report-year-title {
+  margin: 0 0 24px;
+  color: #285943;
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  letter-spacing: 0.04em;
+  scroll-margin-top: 24px;
+}
+
+.report-year-title span {
+  margin-left: 8px;
+  font-size: 1rem;
+}
+
+/* 年表の縦線 */
+.report-timeline {
+  display: grid;
+  gap: 28px;
+  margin-left: 10px;
+  padding: 0 0 8px 28px;
+  border-left: 2px solid #c6d6bf;
+}
+
+/* 開催ごとのカード */
+.report-entry {
+  position: relative;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #e9dfc4;
+  border-radius: 20px;
+  background-color: #fff;
+
+  /*
+    写真が指定された場合は、
+    写真の上に白い半透明の背景を重ねる
+  */
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 255, 255, 0.92)
+    ),
+    var(--report-photo, none);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 20px rgba(92, 74, 47, 0.05);
+}
+
+/* 年表の丸い目印 */
+.report-entry::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: -37px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #fffdf0;
+  border-radius: 50%;
+  background-color: #52805c;
+}
+
+.report-entry h3 {
+  margin-bottom: 20px;
+  color: #285943;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.report-entry > :last-child {
+  margin-bottom: 0;
+}
+
+/* 日付と回数 */
+.report-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+  color: #665437;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.report-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: #edf3e5;
+  color: #285943;
+  font-size: 0.8rem;
+}
+
+/* 新聞掲載のカード */
+.report-entry-news {
+  border-color: #d8bb68;
+}
+
+.report-entry-news .report-badge {
+  background-color: #fff0bc;
+  color: #705019;
+}
+
+.report-entry-news::before {
+  background-color: #aa7d24;
+}
+
+/* 想いや特徴を伝える文章 */
+.report-message {
+  color: #285943;
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.9;
+}
+
+/* 開催時間など */
+.report-facts {
+  margin: 0 0 20px;
+}
+
+.report-facts > div {
+  display: grid;
+  grid-template-columns: 9em minmax(0, 1fr);
+  gap: 8px 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e6e6d9;
+}
+
+.report-facts dt {
+  font-weight: bold;
+}
+
+.report-facts dd {
+  min-width: 0;
+  margin: 0;
+}
+
+/* メニュー・遊び・配布品 */
+.report-detail {
+  min-width: 0;
+  margin-bottom: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  background-color: rgba(242, 245, 234, 0.9);
+}
+
+.report-detail h4 {
+  margin: 0 0 10px;
+  color: #285943;
+  font-size: 1rem;
+}
+
+.report-detail ul {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.report-detail li + li {
+  margin-top: 4px;
+}
+
+.report-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.report-detail-grid .report-detail {
+  margin-bottom: 0;
+}
+
+.report-item-note {
+  display: block;
+  font-size: 0.85rem;
+  color: #6f614c;
+}
+
+/* 夏祭りの参加人数 */
+.report-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.report-stats > div {
+  min-width: 0;
+  padding: 16px 8px;
+  border-radius: 12px;
+  background-color: #fff3c7;
+  text-align: center;
+}
+
+.report-stats dt {
+  font-size: 0.85rem;
+}
+
+.report-stats dd {
+  margin: 4px 0 0;
+  color: #285943;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* 最後のメッセージ */
+.report-closing {
+  margin-top: 56px;
+  padding: 40px;
+  border: 1px solid #d5dfc9;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #edf3e5, #fff8df);
+}
+
+.report-closing h2 {
+  color: #285943;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.report-closing-text {
+  max-width: 42em;
+  margin: 24px auto 0;
+  line-height: 2;
+}
+
+.report-closing-text p {
+  margin-bottom: 24px;
+}
+
+.report-closing-text .report-signature {
+  margin-bottom: 0;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .report-intro {
+    padding: 32px 0 20px;
+  }
+
+  .report-timeline {
+    gap: 20px;
+    margin-left: 6px;
+    padding-left: 18px;
+  }
+
+  .report-entry {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .report-entry::before {
+    left: -27px;
+  }
+
+  .report-facts > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .report-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .report-detail {
+    padding: 14px;
+  }
+
+  .report-stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .report-stats > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 12px;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .report-stats dd {
+    margin: 0;
+  }
+
+  .report-closing {
+    margin-top: 36px;
+    padding: 24px 20px;
+  }
+}
