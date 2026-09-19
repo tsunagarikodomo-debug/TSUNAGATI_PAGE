@@ -1,0 +1,324 @@
+/* ========================================
+   1. 共通設定
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  color: #5c4a2f;
+  background-color: #fffdf0;
+  overflow-wrap: anywhere;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #705019;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible {
+  outline: 3px solid #705019;
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+
+h2 {
+  margin: 0 0 20px;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   3. ページ全体・見出し
+======================================== */
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.section {
+  margin-top: 48px;
+}
+
+.page-intro {
+  padding: 48px 0 8px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #75602d;
+}
+
+/* ========================================
+   5. 案内・カード・リスト
+======================================== */
+
+.notice {
+  padding: 28px;
+  border: 2px solid #e8c653;
+  border-radius: 16px;
+  background-color: #fff5c7;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e9dfc4;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.large-text {
+  font-size: 1.65rem;
+  font-weight: bold;
+}
+
+.note {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #6f614c;
+}
+
+.content-list {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.content-list li + li {
+  margin-top: 10px;
+}
+
+
+/* ========================================
+   6. 開催情報・振込先
+======================================== */
+
+.info-list {
+  margin: 0;
+}
+
+.info-list > div {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 8px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee5d3;
+}
+
+.info-list > div:first-child {
+  padding-top: 0;
+}
+
+.info-list > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.info-list dt {
+  font-weight: bold;
+}
+
+.info-list dd {
+  margin: 0;
+}
+
+
+/* ========================================
+   7. ボタン・連絡先リンク
+======================================== */
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 12px 24px;
+
+  border: 2px solid #f2cf4a;
+  border-radius: 12px;
+  background-color: #f2cf4a;
+  color: #483719;
+
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  border-color: #e5bc2e;
+  background-color: #e5bc2e;
+}
+
+/* 枠線付きのボタン */
+.button-outline {
+  border-color: #9a7730;
+  background-color: #fff;
+}
+
+.button-outline:hover {
+  border-color: #9a7730;
+  background-color: #fff3c7;
+}
+
+.text-link {
+  display: inline-block;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+.contact-link {
+  display: inline-block;
+  max-width: 100%;
+  padding: 8px 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.account-name {
+  font-weight: bold;
+}
+
+
+/* ========================================
+   8. 活動への思い
+======================================== */
+
+.support-message {
+  padding: 32px;
+  border-radius: 16px;
+  background-color: #edf3e5;
+}
+
+/* 本文の読みやすさ */
+  body {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  /* 本文も画面幅に収め、左右に余白をつける */
+  main {
+    width: 100%;
+    min-width: 0;
+    padding: 0 16px 40px;
+  }
+
+  /* 見出しを画面幅に応じた大きさにする */
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .page-intro {
+    padding-top: 28px;
+  }
+
+  .section {
+    margin-top: 28px;
+  }
+
+  /* カードは幅を固定せず1列にする */
+  .card-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .card,
+  .notice,
+  .support-message {
+    min-width: 0;
+    padding: 16px;
+  }
+
+  /* 画像は本文の横幅を超えない */
+  main img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ボタンは縦並び・本文と同じ幅 */
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  main .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px;
+    font-size: 1rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* 項目名と説明を縦に並べる */
+  .info-list > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .contact-link {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+  }

@@ -1,0 +1,72 @@
+/* ========================================
+   9. 寄付募集の商品
+======================================== */
+
+.donation-grid {
+  margin-top: 24px;
+}
+
+.donation-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.donation-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e9dfc4;
+}
+
+.donation-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding: 20px;
+}
+
+.donation-category {
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background-color: #edf3e5;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.donation-category2 {
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background-color: #f3e5f1;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.donation-body .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* 商品カード */
+  .donation-card {
+    padding: 0;
+  }
+
+  .donation-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    padding: 16px;
+  }
+
+  .donation-body {
+    min-width: 0;
+    padding: 16px;
+  }
