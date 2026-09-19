@@ -1,12 +1,9 @@
-/* ヘッダー全体 */
+/* メイン動画 */
 .site-header {
-  width: 100%;
-  background-color: #fff3a6;
-  border-bottom: 4px solid #f2cf4a;
-  box-shadow: 0 2px 8px rgba(150, 120, 20, 0.15);
+  position: relative;
+  background: #fff3a6;
 }
 
-/* ヘッダー動画 */
 .site-header .header-video {
   display: block;
   width: 100%;
@@ -15,101 +12,306 @@
   pointer-events: none;
 }
 
-/* メニューの配置領域 */
-.site-header .header-inner {
-  width: 100%;
-  padding: 16px 24px;
+/* トップページだけ、最初の画面を大きな動画にする */
+.site-header.is-home .header-video {
+  height: 100svh;
+  object-fit: cover;
 }
 
-/* 5つのボタンを均等な幅にする */
-.site-header nav {
+/* 右上の丸いボタン */
+.menu-open,
+.menu-close {
+  position: fixed;
+  top: 24px;
+  left: 24px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #5c4a2f;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
 }
 
-/* ボタン */
-.site-header nav a {
+.menu-open {
+  z-index: 100;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.menu-close {
+  font-size: 2rem;
+}
+
+/* 画面全体に開くメニュー */
+.site-menu {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 120px 8vw 48px;
+  border: 0;
+  background: #fffdf0;
+  color: #5c4a2f;
+  overflow-y: auto;
+}
+
+.site-menu::backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.site-menu h2 {
+  margin: 0 0 40px;
+  font-size: 1.1rem;
+}
+
+/* 別ページへのリンク */
+.site-menu nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 64px;
+}
+
+.site-menu nav a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 0;
-  min-height: 52px;
-  padding: 12px 8px;
-
-  border: 1px solid #e8d89e;
-  border-radius: 12px;
-  background-color: #fffdf0;
-  color: #5c4a2f;
-
-  font-weight: bold;
-  line-height: 1.5;
-  text-align: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 80px;
+  padding: 16px 0;
+  border-bottom: 1px solid #dfd5bf;
+  color: inherit;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
   text-decoration: none;
 }
 
-/* マウス操作時 */
+.site-menu nav a[aria-current="page"] {
+  color: #285943;
+  font-weight: bold;
+  border-bottom-color: #285943;
+}
+
 @media (hover: hover) {
-  .site-header nav a:hover {
-    background-color: #fff5c7;
-    box-shadow: 0 3px 8px rgba(92, 74, 47, 0.12);
+  .site-menu nav a:hover {
+    color: #285943;
+    background: #edf3e5;
   }
 }
 
-/* キーボード操作時 */
-.site-header nav a:focus-visible {
-  outline: 3px solid #285943;
-  outline-offset: 3px;
+.menu-open:focus-visible,
+.menu-close:focus-visible,
+.site-menu nav a:focus-visible {
+  outline: 3px solid #a77b21;
+  outline-offset: 4px;
 }
 
-/* 現在のページ */
-.site-header nav a[aria-current="page"] {
-  border-color: #285943;
-  background-color: #285943;
-  color: #fff;
+html.menu-is-open,
+html.menu-is-open body {
+  overflow: hidden;
 }
 
 /* スマホ */
 @media (max-width: 768px) {
-  .site-header .header-inner {
-    padding: 12px;
+  .menu-open,
+  .menu-close {
+    top: 16px;
+    left: 16px;
+    width: 60px;
+    height: 60px;
   }
 
-  .site-header nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .site-menu {
+    padding: 100px 24px 32px;
+  }
+
+  .site-menu h2 {
+    margin-bottom: 20px;
+  }
+
+  .site-menu nav {
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
   }
 
-  /* ボタンが奇数の場合、最後を全幅にする */
-  .site-header nav a:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-
-  .site-header nav a {
-    min-height: 48px;
-    padding: 12px 8px;
-    font-size: 0.95rem;
+  .site-menu nav a {
+    min-height: 64px;
+    font-size: 1.3rem;
   }
 }
 
-/* スマホだけボタン部分をコンパクトにする */
+/* MENUの下に置くInstagramボタン */
+.instagram-button {
+  position: fixed;
+  top: 112px;
+  left: 24px;
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+
+  background: #fff;
+  color: #c13584;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+}
+
+.instagram-button svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+.instagram-button:focus-visible {
+  outline: 3px solid #a77b21;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .instagram-button:hover {
+    background: #fff0f6;
+  }
+}
+
+/* スマホではMENUと同じ60px */
 @media (max-width: 768px) {
-  .site-header .header-inner {
-    display: flex;
-    aspect-ratio: 16 / 3;
-    padding: 4px 8px;
+  .instagram-button {
+    top: 88px;
+    left: 16px;
+    width: 60px;
+    height: 60px;
   }
 
-  .site-header nav {
-    flex: 1;
-    gap: 4px;
+  .instagram-button svg {
+    width: 30px;
+    height: 30px;
   }
+}
 
-  .site-header nav a {
-    min-height: 0;
-    padding: 2px 4px;
-    font-size: 0.8rem;
-    border-radius: 6px;
+/* Instagram風のグラデーションと光沢 */
+.instagram-button {
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+
+  background:
+    radial-gradient(
+      circle at 28% 105%,
+      #ffdf80 0%,
+      #fcaf45 22%,
+      #f77737 35%,
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      #405de6 0%,
+      #833ab4 28%,
+      #c13584 52%,
+      #e1306c 72%,
+      #fd1d1d 100%
+    );
+
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.55),
+    inset 0 -3px 6px rgba(95, 15, 90, 0.25),
+    0 4px 12px rgba(193, 53, 132, 0.3);
+}
+
+/* 上側に光の反射を重ねる */
+.instagram-button::before {
+  content: "";
+  position: absolute;
+  inset: 3px 6px 48%;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+}
+
+.instagram-button svg {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 1px 1px rgba(100, 0, 70, 0.2));
+}
+
+/* 以前のホバー背景指定を上書き */
+@media (hover: hover) {
+  .instagram-button:hover {
+    background:
+      radial-gradient(
+        circle at 28% 105%,
+        #ffdf80 0%,
+        #fcaf45 22%,
+        #f77737 35%,
+        transparent 60%
+      ),
+      linear-gradient(
+        145deg,
+        #405de6 0%,
+        #833ab4 28%,
+        #c13584 52%,
+        #e1306c 72%,
+        #fd1d1d 100%
+      );
+    filter: brightness(1.08);
+  }
+}
+
+/* MENUと閉じるボタンに光沢を付ける */
+.menu-open,
+.menu-close {
+  isolation: isolate;
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    #ad9170 0%,
+    #806449 45%,
+    #5c4a2f 75%,
+    #493822 100%
+  );
+
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -3px 6px rgba(40, 25, 10, 0.3),
+    0 4px 12px rgba(92, 74, 47, 0.3);
+}
+
+/* 上側の光の反射 */
+.menu-open::before,
+.menu-close::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 3px 6px 48%;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .menu-open:hover,
+  .menu-close:hover {
+    filter: brightness(1.08);
   }
 }
