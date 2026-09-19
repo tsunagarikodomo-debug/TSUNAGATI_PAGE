@@ -92,3 +92,24 @@
     font-size: 0.95rem;
   }
 }
+
+/* スマホだけボタン部分をコンパクトにする */
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    display: flex;
+    aspect-ratio: 16 / 3;
+    padding: 4px 8px;
+  }
+
+  .site-header nav {
+    flex: 1;
+    gap: 4px;
+  }
+
+  .site-header nav a {
+    min-height: 0;
+    padding: 2px 4px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+}
