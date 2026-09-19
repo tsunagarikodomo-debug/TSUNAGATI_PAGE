@@ -1,31 +1,85 @@
 <header class="site-header">
   <video
-  class="header-video"
-  autoplay
-  muted
-  loop
-  playsinline
-  aria-hidden="true"
->
-  <source
-    media="(max-width: 768px)"
-    src="../images/header_mobile.mp4"
-    type="video/mp4"
+    class="header-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-hidden="true"
   >
-  <source
-    src="../images/header_movie.mp4"
-    type="video/mp4"
-  >
-</video>
+    <source
+      media="(max-width: 768px)"
+      src="../images/header_mobile.mp4"
+      type="video/mp4"
+    >
+    <source
+      src="../images/header_movie.mp4"
+      type="video/mp4"
+    >
+  </video>
 
-  <div class="header-inner">
+  <button
+    class="menu-open"
+    type="button"
+    aria-label="メニューを開く"
+    aria-haspopup="dialog"
+    aria-controls="site-menu"
+    aria-expanded="false"
+  >
+    MENU
+  </button>
+
+  <a
+  class="instagram-button"
+  href="https://www.instagram.com/tsunagari_kodomo/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagramを見る（別タブで開きます）"
+>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+    <circle cx="12" cy="12" r="4"></circle>
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor"
+      stroke="none"></circle>
+  </svg>
+</a>
+
+
+  <dialog id="site-menu" class="site-menu" aria-labelledby="menu-title">
+    <button
+      class="menu-close"
+      type="button"
+      aria-label="メニューを閉じる"
+      autofocus
+    >
+      ×
+    </button>
+
+    <h2 id="menu-title">メニュー</h2>
 
     <nav aria-label="メインメニュー">
-      <a href="../index.html">ホーム</a>
-      <a href="../HTML/reserve.html">参加申込み</a>
-      <a href="../HTML/support.html">支援する</a>
-      <a href="../HTML/report.html">活動報告</a>
-      <a href="../HTML/question.html">お問い合わせ</a>
+      <a href="../index.html">
+        <span>ホーム</span><span aria-hidden="true">→</span>
+      </a>
+      <a href="../HTML/reserve.html">
+        <span>参加申込み</span><span aria-hidden="true">→</span>
+      </a>
+      <a href="../HTML/support.html">
+        <span>支援する</span><span aria-hidden="true">→</span>
+      </a>
+      <a href="../HTML/report.html">
+        <span>活動報告</span><span aria-hidden="true">→</span>
+      </a>
+      <a href="../HTML/question.html">
+        <span>お問い合わせ</span><span aria-hidden="true">→</span>
+      </a>
     </nav>
-  </div>
+  </dialog>
 </header>

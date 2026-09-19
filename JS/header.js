@@ -36,6 +36,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
       header.replaceChildren(template.content);
 
+      // メニューの開閉
+const menu = header.querySelector("#site-menu");
+const openButton = header.querySelector(".menu-open");
+const closeButton = header.querySelector(".menu-close");
+
+openButton.addEventListener("click", function () {
+  menu.showModal();
+  openButton.setAttribute("aria-expanded", "true");
+  document.documentElement.classList.add("menu-is-open");
+});
+
+closeButton.addEventListener("click", function () {
+  menu.close();
+});
+
+menu.addEventListener("close", function () {
+  openButton.setAttribute("aria-expanded", "false");
+  document.documentElement.classList.remove("menu-is-open");
+  openButton.focus();
+});
+
       const video = header.querySelector(".header-video");
 
 if (video) {
