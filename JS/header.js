@@ -36,6 +36,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
       header.replaceChildren(template.content);
 
+      const video = header.querySelector(".header-video");
+
+if (video) {
+  // Safari向けに、動画のプロパティにも明示する
+  video.defaultMuted = true;
+  video.muted = true;
+  video.playsInline = true;
+
+  const startVideo = function () {
+    video.play().catch(function (error) {
+      console.error(
+        "ヘッダー動画の再生に失敗:",
+        error.name,
+        error.message
+      );
+    });
+  };
+
+  video.addEventListener("loadeddata", startVideo, { once: true });
+
+  // 挿入後の動画ソースを読み込み直す
+  video.load();
+  startVideo();
+}
+
       const currentPath = window.location.pathname.replace(
         /\/$/,
         "/index.html"
