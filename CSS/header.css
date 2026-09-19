@@ -1,0 +1,94 @@
+/* ヘッダー全体 */
+.site-header {
+  width: 100%;
+  background-color: #fff3a6;
+  border-bottom: 4px solid #f2cf4a;
+  box-shadow: 0 2px 8px rgba(150, 120, 20, 0.15);
+}
+
+/* ヘッダー動画 */
+.site-header .header-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* メニューの配置領域 */
+.site-header .header-inner {
+  width: 100%;
+  padding: 16px 24px;
+}
+
+/* 5つのボタンを均等な幅にする */
+.site-header nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+/* ボタン */
+.site-header nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 8px;
+
+  border: 1px solid #e8d89e;
+  border-radius: 12px;
+  background-color: #fffdf0;
+  color: #5c4a2f;
+
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* マウス操作時 */
+@media (hover: hover) {
+  .site-header nav a:hover {
+    background-color: #fff5c7;
+    box-shadow: 0 3px 8px rgba(92, 74, 47, 0.12);
+  }
+}
+
+/* キーボード操作時 */
+.site-header nav a:focus-visible {
+  outline: 3px solid #285943;
+  outline-offset: 3px;
+}
+
+/* 現在のページ */
+.site-header nav a[aria-current="page"] {
+  border-color: #285943;
+  background-color: #285943;
+  color: #fff;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    padding: 12px;
+  }
+
+  .site-header nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  /* ボタンが奇数の場合、最後を全幅にする */
+  .site-header nav a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .site-header nav a {
+    min-height: 48px;
+    padding: 12px 8px;
+    font-size: 0.95rem;
+  }
+}
