@@ -1,301 +1,94 @@
-/* ========================================
-   2. ヘッダー・背景動画
-======================================== */
-
+/* ヘッダー全体 */
 .site-header {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  isolation: isolate;
-  overflow: hidden;
+  width: 100%;
   background-color: #fff3a6;
   border-bottom: 4px solid #f2cf4a;
   box-shadow: 0 2px 8px rgba(150, 120, 20, 0.15);
 }
 
-/* 動画の縦横比を保ち、全体を表示 */
+/* ヘッダー動画 */
 .site-header .header-video {
-  position: relative;
-  inset: auto;
-  z-index: -2;
-  grid-area: 1 / 1;
-  align-self: center;
+  display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
-  object-position: center;
   pointer-events: none;
 }
 
-/* 動画の上に半透明の背景を重ねない */
-.site-header::before {
-  display: none;
-}
-
-/* ロゴとメニューを動画の左側に重ねる */
+/* メニューの配置領域 */
 .site-header .header-inner {
-  position: absolute;
-  inset: 0;
-  grid-area: 1 / 1;
-  align-self: start;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
-
   width: 100%;
-  height: 100%;
-  max-width: none;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 12px;
+  padding: 16px 24px;
 }
 
-/* ロゴとサイト名 */
-.site-brand {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 12px;
-  max-width: 100%;
-  color: inherit;
-  text-decoration: none;
-}
-
-.header-logo {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.site-name {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-/* 縦並びのメニュー */
+/* 5つのボタンを均等な幅にする */
 .site-header nav {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex: 1;
-  gap: 6px;
-
-  width: min(200px, 100%);
-  min-height: 0;
-  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
 }
 
-/* メニューのボタン */
+/* ボタン */
 .site-header nav a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  min-height: 44px;
-  padding: 8px 14px;
+  justify-content: center;
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 8px;
 
-  border-radius: 8px;
+  border: 1px solid #e8d89e;
+  border-radius: 12px;
   background-color: #fffdf0;
   color: #5c4a2f;
+
   font-weight: bold;
-  text-align: left;
+  line-height: 1.5;
+  text-align: center;
   text-decoration: none;
 }
 
-.site-header nav a:hover {
-  background-color: #fff3a6;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18);
+/* マウス操作時 */
+@media (hover: hover) {
+  .site-header nav a:hover {
+    background-color: #fff5c7;
+    box-shadow: 0 3px 8px rgba(92, 74, 47, 0.12);
+  }
 }
 
-/* スマホ用動画とメニューの配置 */
+/* キーボード操作時 */
+.site-header nav a:focus-visible {
+  outline: 3px solid #285943;
+  outline-offset: 3px;
+}
+
+/* 現在のページ */
+.site-header nav a[aria-current="page"] {
+  border-color: #285943;
+  background-color: #285943;
+  color: #fff;
+}
+
+/* スマホ */
 @media (max-width: 768px) {
-  .site-header {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: 0;
-  }
-
-  .site-header .header-video {
-    position: static;
-    display: block;
-    width: 100%;
-    height: auto;
-    align-self: auto;
-    z-index: auto;
-    object-fit: contain;
-  }
-
   .site-header .header-inner {
-    position: static;
-    width: 100%;
-    height: auto;
-    flex-wrap: nowrap;
     padding: 12px;
   }
 
   .site-header nav {
-    flex: none;
-    width: min(200px, 100%);
-    overflow: visible;
-  }
-}
-
-/* 現在表示しているページのメニュー */
-.site-header nav a[aria-current="page"] {
-  background-color: #285943;
-  color: #fff;
-  box-shadow: inset 5px 0 0 #a8e6cf;
-  font-weight: bold;
-}
-
-/* マウスを重ねたとき */
-.site-header nav a[aria-current="page"]:hover {
-  background-color: #204936;
-  color: #fff;
-  box-shadow: inset 5px 0 0 #a8e6cf;
-  transform: none;
-}
-
-/* ヘッダーのメニューを下端にそろえる */
-.site-header .header-inner {
-  flex-wrap: nowrap;
-}
-
-.site-header nav {
-  flex: 0 1 auto;
-  margin-top: auto;
-  min-height: 0;
-  overflow-y: auto;
-}
-
-/* ロゴとメニューをまとめてヘッダーの下側に配置 */
-.site-header .header-inner {
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-/* ロゴとサイト名をメニューのすぐ上に表示 */
-.site-header .site-brand {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 8px;
-}
-
-/* メニュー上の自動余白を解除 */
-.site-header nav {
-  flex: 0 1 auto;
-  margin-top: 0;
-  min-height: 0;
-  overflow-y: auto;
-}
-
-/* サイト名だけ非表示にする */
-.site-header .site-name {
-  display: none;
-}
-
-/* メニュー上の空きスペースをロゴの表示領域にする */
-.site-header .site-brand {
-  position: relative;
-  display: block;
-  flex: 1 1 0;
-  width: min(200px, 100%);
-  min-height: 0;
-}
-
-/* 空きスペースに収まる最大サイズで表示 */
-.site-header .header-logo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: left bottom;
-  border-radius: 0;
-}
-
-/* サイト名は非表示 */
-.site-header .site-name {
-  display: none;
-}
-
-/* スマホは動画の下にロゴ用のスペースを確保 */
-@media (max-width: 768px) {
-  .site-header .site-brand {
-    flex: none;
-    height: auto;
-    aspect-ratio: 1 / 1;
-  }
-}
-
-/* ロゴを中央に合わせ、円形に切り抜く */
-.site-header .header-logo {
-  object-fit: contain;
-  object-position: center;
-  clip-path: circle(closest-side at 50% 50%);
-}
-
-/* ヘッダーを画面幅に合わせる */
-  .site-header {
-    width: 100%;
-    min-width: 0;
-    height: 360px;
-  }
-
-  /* 動画を切り取らず、枠内に全体を表示 */
-  .site-header .header-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
-
-  /* ロゴと縦メニューをヘッダー内に収める */
-  .site-header .header-inner {
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    min-height: 0;
-    flex-wrap: nowrap;
-    padding: 12px;
-    gap: 10px;
-  }
-
-  .site-brand {
-    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
-  .site-name {
-    min-width: 0;
-    font-size: 1rem;
-  }
-
-  .site-header nav {
-    width: min(180px, 100%);
-    min-height: 0;
-    overflow-y: auto;
+  /* ボタンが奇数の場合、最後を全幅にする */
+  .site-header nav a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
   .site-header nav a {
-    min-height: 44px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    min-height: 48px;
+    padding: 12px 8px;
+    font-size: 0.95rem;
   }
+}
