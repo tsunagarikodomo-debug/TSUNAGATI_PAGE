@@ -387,9 +387,7 @@ body {
 
 .hero {
   position: relative;
-
   min-height: 520px;
-
   padding: 70px 20px;
 
   display: flex;
@@ -401,6 +399,7 @@ body {
   overflow: hidden;
 
   border-radius: 24px;
+  background: #fff;
 }
 
 
@@ -411,10 +410,8 @@ body {
 .hero-slideshow {
   position: absolute;
   inset: 0;
-
   z-index: 0;
 }
-
 
 .hero-slide {
   position: absolute;
@@ -451,6 +448,31 @@ body {
   animation-delay: 15s;
 }
 
+/* ========================================
+   写真の上下を白へグラデーション
+======================================== */
+
+.hero-slideshow::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #fff 0%,
+      rgba(255, 255, 255, 0.85) 8%,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(255, 255, 255, 0) 75%,
+      rgba(255, 255, 255, 0.85) 92%,
+      #fff 100%
+    );
+
+  z-index: 3;
+}
 
 /* ========================================
    写真を切り替えるアニメーション
@@ -487,18 +509,21 @@ body {
 .hero-content {
   position: relative;
 
-  z-index: 2;
+  z-index: 5;
 
   width: min(900px, 100%);
 
   padding: 45px 30px;
 
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.72);
 
   border-radius: 28px;
 
   box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.12);
+    0 10px 35px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 
@@ -573,16 +598,15 @@ body {
 
   .hero {
     min-height: 500px;
-
     padding: 35px 14px;
   }
 
   .hero-content {
     padding: 32px 18px;
-
     border-radius: 22px;
-
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
   }
 
   .tags {
