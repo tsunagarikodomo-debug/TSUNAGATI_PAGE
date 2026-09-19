@@ -692,6 +692,7 @@ main {
   display: block;
   width: 100%;
   height: auto;
+  pointer-events: none;
 }
 
 /* 挨拶文 */
