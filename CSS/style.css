@@ -670,3 +670,69 @@ main {
     overflow: visible;
   }
 }
+
+/* ========================================
+   代表挨拶・紹介動画
+======================================== */
+
+.greeting {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 動画 */
+.greeting-video {
+  margin-bottom: 24px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #000;
+}
+
+.greeting-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 挨拶文 */
+.greeting-message {
+  padding: 32px;
+}
+
+.greeting-text {
+  max-width: 42em;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.greeting-text p + p {
+  margin-top: 20px;
+}
+
+/* 代表者名 */
+.greeting-signature {
+  margin-top: 28px;
+  text-align: right;
+}
+
+.greeting-name {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* スマホ表示 */
+@media (max-width: 768px) {
+  .greeting-video {
+    margin-bottom: 16px;
+  }
+
+  .greeting-message {
+    padding: 20px 16px;
+  }
+
+  .greeting-text {
+    line-height: 1.9;
+  }
+}
