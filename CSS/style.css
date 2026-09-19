@@ -737,3 +737,18 @@ main {
     line-height: 1.9;
   }
 }
+
+/* 現在表示しているページのメニュー */
+.site-header nav a[aria-current="page"] {
+  background-color: #f2cf4a;
+  color: #483719;
+  box-shadow: inset 5px 0 0 #705019;
+  font-weight: bold;
+}
+
+/* マウスを重ねても選択状態を保つ */
+.site-header nav a[aria-current="page"]:hover {
+  background-color: #f2cf4a;
+  box-shadow: inset 5px 0 0 #705019;
+  transform: none;
+}
