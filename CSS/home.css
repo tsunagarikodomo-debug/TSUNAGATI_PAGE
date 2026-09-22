@@ -687,3 +687,65 @@ body {
   text-align: right;
   font-size: 0.75rem;
 }
+
+/* 開催案内の見出しと最新情報リンク */
+.notice-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.notice-heading .eyebrow {
+  margin: 0;
+}
+
+.latest-news-link {
+  margin-left: auto;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+}
+
+@media (hover: hover) {
+  .latest-news-link:hover {
+    text-decoration: underline;
+  }
+}
+
+.latest-news-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* 最新情報リンク：Instagram風の光沢文字 */
+.latest-news-link {
+  color: #c13584;
+  font-weight: bold;
+  text-decoration-color: #c13584;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .latest-news-link {
+    background-image: linear-gradient(
+      165deg,
+      #405de6 0%,
+      #833ab4 22%,
+      #c13584 40%,
+      #fbd5ec 48%,
+      #e1306c 54%,
+      #fd1d1d 76%,
+      #b85b00 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 1px 1px rgba(131, 58, 180, 0.2));
+  }
+}
