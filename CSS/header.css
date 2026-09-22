@@ -12,13 +12,7 @@
   pointer-events: none;
 }
 
-/* パソコン：トップページの動画を画面いっぱいに表示 */
-@media (min-width: 769px) {
-  .site-header.is-home .header-video {
-    height: 100svh;
-    object-fit: cover;
-  }
-}
+
 
 /* スマホ：動画を横4：縦3で、切り取らずに表示 */
 @media (max-width: 768px) {
@@ -326,4 +320,9 @@ html.menu-is-open body {
   .menu-close:hover {
     filter: brightness(1.08);
   }
+}
+
+/* ホーム以外では動画だけ非表示にする */
+.site-header:not(.is-home) .header-video {
+  display: none;
 }

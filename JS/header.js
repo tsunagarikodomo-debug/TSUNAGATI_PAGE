@@ -35,6 +35,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
       header.replaceChildren(template.content);
+      
+      // ホームの場合だけ「is-home」を付ける
+const homeUrl = new URL("../index.html", headerUrl);
+const pagePath = window.location.pathname.replace(
+  /\/$/,
+  "/index.html"
+);
+
+header.querySelector(".site-header").classList.toggle(
+  "is-home",
+  pagePath === homeUrl.pathname
+);
 
       // メニューの開閉
 const menu = header.querySelector("#site-menu");
