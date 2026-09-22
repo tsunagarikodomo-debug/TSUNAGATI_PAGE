@@ -643,3 +643,47 @@ body {
     padding: 20px 16px;
   }
 }
+
+/* 申込みボタンの文字 */
+.hero .application-link {
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1.5px;
+}
+
+/* カーソルを重ねたとき */
+@media (hover: hover) {
+  .hero .application-link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+/* キーボードで選択したとき */
+.hero .application-link:focus-visible {
+  text-decoration-line: underline;
+}
+
+/* 申込みボタンを右側に小さく配置 */
+.hero .application-buttons {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.hero .application-buttons .application-link {
+  width: auto;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* ボタン下の案内も右寄せ */
+.hero .application-buttons + .note {
+  text-align: right;
+  font-size: 0.75rem;
+}
