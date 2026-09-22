@@ -326,3 +326,119 @@ html.menu-is-open body {
 .site-header:not(.is-home) .header-video {
   display: none;
 }
+
+/* メニューを縦1列に並べる */
+.site-menu nav {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+/* 参加申し込みの開閉エリア */
+.site-menu .menu-branch {
+  min-width: 0;
+}
+
+/* 「参加申し込み」の見出し */
+.site-menu .menu-branch > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 80px;
+  padding: 16px 0;
+  border-bottom: 1px solid #dfd5bf;
+  color: inherit;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  list-style: none;
+  cursor: pointer;
+}
+
+/* ブラウザー標準の三角マークを非表示にする */
+.site-menu .menu-branch > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 開閉マーク */
+.site-menu .menu-branch-icon {
+  flex-shrink: 0;
+}
+
+/* 開いているときは「＋」を回転して「×」にする */
+.site-menu .menu-branch[open] .menu-branch-icon {
+  transform: rotate(45deg);
+}
+
+.site-menu .menu-branch[open] > summary {
+  color: #285943;
+}
+
+/* 分岐先のボタンを縦に並べる */
+.site-menu .menu-submenu {
+  display: grid;
+  gap: 12px;
+  padding: 16px 0 16px 24px;
+}
+
+/* 分岐先のボタン */
+.site-menu nav .menu-submenu a {
+  min-height: 60px;
+  padding: 16px 20px;
+  border: 1px solid #dfd5bf;
+  border-radius: 12px;
+  background: #fff5c7;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+@media (hover: hover) {
+  .site-menu .menu-branch > summary:hover,
+  .site-menu nav .menu-submenu a:hover {
+    color: #285943;
+    background: #edf3e5;
+  }
+}
+
+/* キーボード操作時の枠 */
+.site-menu .menu-branch > summary:focus-visible {
+  outline: 3px solid #a77b21;
+  outline-offset: 4px;
+}
+
+/* スマートフォン */
+@media (max-width: 768px) {
+  .site-menu .menu-branch > summary {
+    min-height: 64px;
+    font-size: 1.3rem;
+  }
+
+  .site-menu .menu-submenu {
+    padding-right: 12px;
+  }
+
+  .site-menu nav .menu-submenu a {
+    gap: 12px;
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* 分岐先をシンプルなテキストリンクにする */
+.site-menu nav .menu-submenu a {
+  justify-content: flex-start;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+}
+
+/* カーソルを重ねると下線を表示 */
+@media (hover: hover) {
+  .site-menu nav .menu-submenu a:hover {
+    background: transparent;
+    color: #285943;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+}
