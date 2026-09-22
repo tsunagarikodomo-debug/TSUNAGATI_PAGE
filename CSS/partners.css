@@ -8,7 +8,7 @@
   list-style: none;
 }
 
-.partner-list > li {
+.partner-list>li {
   min-width: 0;
 }
 
@@ -65,6 +65,8 @@
   height: 180px;
   margin: 24px auto 0;
   object-fit: contain;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 /* 画面幅に応じて一覧の列数を変更 */
