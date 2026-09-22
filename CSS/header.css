@@ -126,6 +126,7 @@ html.menu-is-open body {
 
 /* スマホ */
 @media (max-width: 768px) {
+
   .menu-open,
   .menu-close {
     top: 16px;
@@ -211,21 +212,17 @@ html.menu-is-open body {
   color: #fff;
 
   background:
-    radial-gradient(
-      circle at 28% 105%,
+    radial-gradient(circle at 28% 105%,
       #ffdf80 0%,
       #fcaf45 22%,
       #f77737 35%,
-      transparent 60%
-    ),
-    linear-gradient(
-      145deg,
+      transparent 60%),
+    linear-gradient(145deg,
       #405de6 0%,
       #833ab4 28%,
       #c13584 52%,
       #e1306c 72%,
-      #fd1d1d 100%
-    );
+      #fd1d1d 100%);
 
   box-shadow:
     inset 0 2px 3px rgba(255, 255, 255, 0.55),
@@ -239,11 +236,9 @@ html.menu-is-open body {
   position: absolute;
   inset: 3px 6px 48%;
   border-radius: 50%;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0));
   pointer-events: none;
 }
 
@@ -257,21 +252,17 @@ html.menu-is-open body {
 @media (hover: hover) {
   .instagram-button:hover {
     background:
-      radial-gradient(
-        circle at 28% 105%,
+      radial-gradient(circle at 28% 105%,
         #ffdf80 0%,
         #fcaf45 22%,
         #f77737 35%,
-        transparent 60%
-      ),
-      linear-gradient(
-        145deg,
+        transparent 60%),
+      linear-gradient(145deg,
         #405de6 0%,
         #833ab4 28%,
         #c13584 52%,
         #e1306c 72%,
-        #fd1d1d 100%
-      );
+        #fd1d1d 100%);
     filter: brightness(1.08);
   }
 }
@@ -282,13 +273,11 @@ html.menu-is-open body {
   isolation: isolate;
   overflow: hidden;
 
-  background: linear-gradient(
-    145deg,
-    #ad9170 0%,
-    #806449 45%,
-    #5c4a2f 75%,
-    #493822 100%
-  );
+  background: linear-gradient(145deg,
+      #ad9170 0%,
+      #806449 45%,
+      #5c4a2f 75%,
+      #493822 100%);
 
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -307,15 +296,14 @@ html.menu-is-open body {
   z-index: -1;
   inset: 3px 6px 48%;
   border-radius: 50%;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0));
   pointer-events: none;
 }
 
 @media (hover: hover) {
+
   .menu-open:hover,
   .menu-close:hover {
     filter: brightness(1.08);
@@ -339,7 +327,7 @@ html.menu-is-open body {
 }
 
 /* 「参加申し込み」の見出し */
-.site-menu .menu-branch > summary {
+.site-menu .menu-branch>summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -354,7 +342,7 @@ html.menu-is-open body {
 }
 
 /* ブラウザー標準の三角マークを非表示にする */
-.site-menu .menu-branch > summary::-webkit-details-marker {
+.site-menu .menu-branch>summary::-webkit-details-marker {
   display: none;
 }
 
@@ -368,7 +356,7 @@ html.menu-is-open body {
   transform: rotate(45deg);
 }
 
-.site-menu .menu-branch[open] > summary {
+.site-menu .menu-branch[open]>summary {
   color: #285943;
 }
 
@@ -390,7 +378,8 @@ html.menu-is-open body {
 }
 
 @media (hover: hover) {
-  .site-menu .menu-branch > summary:hover,
+
+  .site-menu .menu-branch>summary:hover,
   .site-menu nav .menu-submenu a:hover {
     color: #285943;
     background: #edf3e5;
@@ -398,14 +387,14 @@ html.menu-is-open body {
 }
 
 /* キーボード操作時の枠 */
-.site-menu .menu-branch > summary:focus-visible {
+.site-menu .menu-branch>summary:focus-visible {
   outline: 3px solid #a77b21;
   outline-offset: 4px;
 }
 
 /* スマートフォン */
 @media (max-width: 768px) {
-  .site-menu .menu-branch > summary {
+  .site-menu .menu-branch>summary {
     min-height: 64px;
     font-size: 1.3rem;
   }
@@ -454,7 +443,7 @@ html.menu-is-open body {
 
 /* ページへのリンクと、参加申し込みの開閉部分 */
 #site-menu nav a,
-#site-menu .menu-branch > summary {
+#site-menu .menu-branch>summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -467,21 +456,15 @@ html.menu-is-open body {
   border-radius: 16px;
 
   /* 明暗の切り替えで金属の反射を表現 */
+  /* 白い半透明の層を重ね、背景画像だけを薄くする */
   background:
-    radial-gradient(
-      ellipse at 20% 0%,
-      rgba(255, 255, 255, 0.8),
-      transparent 60%
-    ),
-    linear-gradient(
-      165deg,
-      #fff8df 0%,
-      #ead39e 30%,
-      #fff4d0 48%,
-      #c6a76c 51%,
-      #e2c78e 75%,
-      #f8eac3 100%
-    );
+    linear-gradient(rgba(255, 253, 240, 0.82),
+      rgba(255, 253, 240, 0.82)),
+    url("../images/menyubotun.jpg");
+
+  background-size: cover;
+  background-position: center 22%;
+  background-repeat: no-repeat;
 
   color: #3e301c;
   font-weight: bold;
@@ -499,7 +482,7 @@ html.menu-is-open body {
 }
 
 /* 矢印や開閉マークが縮まないようにする */
-#site-menu nav a > span[aria-hidden="true"],
+#site-menu nav a>span[aria-hidden="true"],
 #site-menu .menu-branch-icon {
   flex-shrink: 0;
 }
@@ -514,15 +497,16 @@ html.menu-is-open body {
 
 /* 現在のページ・開いている項目 */
 #site-menu nav a[aria-current="page"],
-#site-menu .menu-branch[open] > summary {
+#site-menu .menu-branch[open]>summary {
   color: #214b38;
   border-color: #416b52;
 }
 
 /* カーソルを重ねると少し明るくする */
 @media (hover: hover) {
+
   #site-menu nav a:hover,
-  #site-menu .menu-branch > summary:hover {
+  #site-menu .menu-branch>summary:hover {
     filter: brightness(1.06);
     text-decoration: none;
   }
@@ -530,21 +514,22 @@ html.menu-is-open body {
 
 /* 押している間は少し暗くする */
 #site-menu nav a:active,
-#site-menu .menu-branch > summary:active {
+#site-menu .menu-branch>summary:active {
   filter: brightness(0.96);
 }
 
 /* キーボード操作時の枠 */
 #site-menu nav a:focus-visible,
-#site-menu .menu-branch > summary:focus-visible {
+#site-menu .menu-branch>summary:focus-visible {
   outline: 3px solid #285943;
   outline-offset: 4px;
 }
 
 /* スマートフォン */
 @media (max-width: 768px) {
+
   #site-menu nav a,
-  #site-menu .menu-branch > summary {
+  #site-menu .menu-branch>summary {
     min-height: 60px;
     padding: 14px 18px;
     font-size: 1.15rem;
@@ -559,8 +544,70 @@ html.menu-is-open body {
 
 /* 動きを抑える設定に対応 */
 @media (prefers-reduced-motion: reduce) {
+
   #site-menu nav a,
-  #site-menu .menu-branch > summary {
+  #site-menu .menu-branch>summary {
     transition: none;
+  }
+}
+
+/* メインの5項目に、写真を5分割して表示 */
+#site-menu nav > a,
+#site-menu nav > .menu-branch > summary {
+  box-sizing: border-box;
+  height: 80px;
+  min-height: 80px;
+  padding: 12px 20px;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 253, 240, 0.78),
+      rgba(255, 253, 240, 0.78)
+    ),
+    url("../images/menyubotun.jpg");
+
+  /* 写真全体をボタン5個分の高さにする */
+  background-size: 100% 100%, 100% 500%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+/* ホーム：写真の上から0〜20％ */
+#site-menu nav > a:nth-child(1) {
+  background-position: center, center 0%;
+}
+
+/* 参加申し込み：20〜40％ */
+#site-menu nav > .menu-branch:nth-child(2) > summary {
+  background-position: center, center 25%;
+}
+
+/* 支援する：40〜60％ */
+#site-menu nav > a:nth-child(3) {
+  background-position: center, center 50%;
+}
+
+/* 活動報告：60〜80％ */
+#site-menu nav > a:nth-child(4) {
+  background-position: center, center 75%;
+}
+
+/* お問い合わせ：80〜100％ */
+#site-menu nav > a:nth-child(5) {
+  background-position: center, center 100%;
+}
+
+/* 開いた子メニューには分割写真を使わない */
+#site-menu nav .menu-submenu a {
+  background: #fff8e8;
+}
+
+/* スマホでも5項目の高さを統一 */
+@media (max-width: 768px) {
+  #site-menu nav > a,
+  #site-menu nav > .menu-branch > summary {
+    height: 64px;
+    min-height: 64px;
+    padding: 10px 14px;
   }
 }
