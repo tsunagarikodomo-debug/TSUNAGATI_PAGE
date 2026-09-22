@@ -140,9 +140,22 @@
   text-align: center;
 }
 
+.sponsors .eyebrow {
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
 .sponsors h2 {
   margin-bottom: 8px;
 }
+
+.sponsors-intro {
+  margin: 0 auto 28px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
 
 /* ========================================
    スポンサーカード
@@ -595,86 +608,38 @@ body {
   .hero .button {
     font-size: 0.85rem;
   }
-  
 
-  .sponsor-main {
-    display: flex;
+  .sponsor-grid {
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    gap: 8px;
   }
 
   .sponsor-card {
     width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    padding: 14px 10px;
+    max-width: 350px;
   }
+
 
   .sponsor-logo {
-    flex: 0 0 55px;
-    width: 55px;
-    height: 55px;
-    margin: 0;
-    border-radius: 50%;
-  }
-
-  .sponsor-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .sponsor-info {
-    align-self: flex-start;
-    padding-top: 2px;
-    text-align: center;
+    width: 80px;
+    height: 80px;
   }
 
   .sponsor-card h3 {
-    margin: 0 0 4px;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  .sponsor-card h3 a {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-decoration: none;
+    font-size: 1.25rem;
   }
 
   .sponsor-card p {
-    margin: 4px 0 0;
     font-size: 0.75rem;
   }
 
   .sponsor-link {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-    padding: 6px 5px;
-    font-size: 0.65rem;
-    text-align: center;
-  }
-
-  .sponsor-details {
-    margin-top: 6px;
+    padding: 4px 10px;
+    font-size: 0.68rem;
   }
 
   .sponsor-support {
     margin-top: 25px;
     padding: 20px 16px;
-  }
-
-  .sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    width: 100%;
   }
 }
