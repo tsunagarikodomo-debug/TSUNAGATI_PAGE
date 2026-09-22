@@ -346,3 +346,236 @@
     padding: 24px 20px;
   }
 }
+
+/* ========================================
+   全幅の写真に文章を重ねる活動報告
+======================================== */
+
+/* 活動報告ページを画面幅いっぱいにする */
+main.report-page {
+  width: 100%;
+  max-width: none;
+  padding: 0 0 48px;
+}
+
+/* 写真以外の部分には読みやすい幅と左右余白を確保 */
+.report-page .report-intro,
+.report-page .report-year-title,
+.report-page .report-closing,
+.report-page > .section,
+.report-page .report-timeline > .report-entry {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* 活動報告をつなぐタイムライン */
+.report-page .report-timeline {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  gap: 64px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* 画面左側の縦線 */
+.report-page .report-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  z-index: 5;
+
+  width: 3px;
+  border-radius: 999px;
+  background-color: #78947a;
+
+  /* 写真の上でも線が見えるよう、白い縁を付ける */
+  box-shadow: 0 0 0 2px rgba(255, 253, 246, 0.8);
+
+  /* リンクのクリックを妨げない */
+  pointer-events: none;
+}
+
+/* 年表の丸い目印を外す */
+.report-page .report-entry::before {
+  content: none;
+}
+
+.report-page .report-year {
+  margin-top: 64px;
+}
+
+.report-page .report-year-title {
+  margin-bottom: 32px;
+}
+
+/* 写真と文章を重ねる記事 */
+.report-wide {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 560px;
+  background-color: #f1eee7;
+}
+
+/* 背景として広げる写真 */
+.report-wide > .report-wide__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--photo-position, center);
+}
+
+/* 左側を白く薄める */
+.report-wide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.98) 0%,
+    rgba(255, 253, 246, 0.94) 48%,
+    rgba(255, 253, 246, 0.55) 65%,
+    rgba(255, 253, 246, 0) 85%
+  );
+}
+
+/* 文章を右側に置く場合は、薄める方向も反転 */
+.report-wide--right::before {
+  background: linear-gradient(
+    to left,
+    rgba(255, 253, 246, 0.98) 0%,
+    rgba(255, 253, 246, 0.94) 48%,
+    rgba(255, 253, 246, 0.55) 65%,
+    rgba(255, 253, 246, 0) 85%
+  );
+}
+
+/* 文章の配置範囲 */
+.report-wide__inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+
+  width: min(1120px, calc(100% - 72px));
+  margin-inline: auto;
+  padding-block: 64px;
+}
+
+/* 通常は左側に文章を配置 */
+.report-wide__body {
+  grid-column: 1;
+  min-width: 0;
+  color: #493e2e;
+  line-height: 2;
+}
+
+/* 右側に文章を配置 */
+.report-wide--right .report-wide__body {
+  grid-column: 2;
+}
+
+.report-wide__body > :last-child {
+  margin-bottom: 0;
+}
+
+.report-wide h3 {
+  margin: 0 0 24px;
+  color: #285943;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.5;
+}
+
+.report-wide .report-date {
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.report-wide .report-message {
+  font-size: 1.15rem;
+}
+
+/* 文章欄の中の詳細情報 */
+.report-wide .report-facts > div {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+}
+
+.report-wide .report-detail-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.report-wide .report-detail {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* スマートフォン */
+@media (max-width: 768px) {
+  .report-page .report-timeline {
+    gap: 40px;
+  }
+
+  .report-wide {
+    min-height: 0;
+  }
+
+  /* 上部は写真を見せ、文章がある下部を薄める */
+  .report-wide::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 253, 246, 0.05) 0%,
+      rgba(255, 253, 246, 0.94) 180px,
+      rgba(255, 253, 246, 0.98) 100%
+    );
+  }
+
+  .report-wide__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    width: calc(100% - 72px);
+    padding: 200px 0 40px;
+  }
+
+  .report-wide__body,
+  .report-wide--right .report-wide__body {
+    grid-column: 1;
+  }
+}
+
+/* 開催日を示す丸いポイント */
+.report-page .report-timeline > .report-point {
+  position: absolute;
+  z-index: 6;
+
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fffdf0;
+  border-radius: 50%;
+  background-color: #285943;
+
+  /* 写真の上でも見やすい縁取り */
+  box-shadow: 0 0 0 1px #78947a;
+
+  /* 指定した位置に丸の中心を合わせる */
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
