@@ -442,3 +442,125 @@ html.menu-is-open body {
     text-underline-offset: 0.25em;
   }
 }
+
+/* ========================================
+   メニューの項目をメタリックにする
+======================================== */
+
+/* 項目同士の間隔 */
+#site-menu nav {
+  gap: 16px;
+}
+
+/* ページへのリンクと、参加申し込みの開閉部分 */
+#site-menu nav a,
+#site-menu .menu-branch > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-width: 0;
+  min-height: 72px;
+  padding: 18px 24px;
+  border: 1px solid #b99a5c;
+  border-radius: 16px;
+
+  /* 明暗の切り替えで金属の反射を表現 */
+  background:
+    radial-gradient(
+      ellipse at 20% 0%,
+      rgba(255, 255, 255, 0.8),
+      transparent 60%
+    ),
+    linear-gradient(
+      165deg,
+      #fff8df 0%,
+      #ead39e 30%,
+      #fff4d0 48%,
+      #c6a76c 51%,
+      #e2c78e 75%,
+      #f8eac3 100%
+    );
+
+  color: #3e301c;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  /* 上側の光と下側の影 */
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 5px rgba(110, 78, 28, 0.2),
+    0 4px 8px rgba(92, 74, 47, 0.16);
+
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+/* 矢印や開閉マークが縮まないようにする */
+#site-menu nav a > span[aria-hidden="true"],
+#site-menu .menu-branch-icon {
+  flex-shrink: 0;
+}
+
+/* 分岐したリンクは少し小さくする */
+#site-menu nav .menu-submenu a {
+  min-height: 52px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+/* 現在のページ・開いている項目 */
+#site-menu nav a[aria-current="page"],
+#site-menu .menu-branch[open] > summary {
+  color: #214b38;
+  border-color: #416b52;
+}
+
+/* カーソルを重ねると少し明るくする */
+@media (hover: hover) {
+  #site-menu nav a:hover,
+  #site-menu .menu-branch > summary:hover {
+    filter: brightness(1.06);
+    text-decoration: none;
+  }
+}
+
+/* 押している間は少し暗くする */
+#site-menu nav a:active,
+#site-menu .menu-branch > summary:active {
+  filter: brightness(0.96);
+}
+
+/* キーボード操作時の枠 */
+#site-menu nav a:focus-visible,
+#site-menu .menu-branch > summary:focus-visible {
+  outline: 3px solid #285943;
+  outline-offset: 4px;
+}
+
+/* スマートフォン */
+@media (max-width: 768px) {
+  #site-menu nav a,
+  #site-menu .menu-branch > summary {
+    min-height: 60px;
+    padding: 14px 18px;
+    font-size: 1.15rem;
+  }
+
+  #site-menu nav .menu-submenu a {
+    min-height: 48px;
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+}
+
+/* 動きを抑える設定に対応 */
+@media (prefers-reduced-motion: reduce) {
+  #site-menu nav a,
+  #site-menu .menu-branch > summary {
+    transition: none;
+  }
+}
