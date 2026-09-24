@@ -749,3 +749,52 @@ body {
     filter: drop-shadow(0 1px 1px rgba(131, 58, 180, 0.2));
   }
 }
+
+/* 代表挨拶の背景写真 */
+.greeting-message {
+  background-color: #fffdf6;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 253, 246, 0.97) 0%,
+      rgba(255, 253, 246, 0.92) 50%,
+      rgba(255, 253, 246, 0.45) 70%,
+      rgba(255, 253, 246, 0.10) 100%
+    ),
+    url("../images/takaaki.jpg");
+
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  padding: 48px 40px;
+  color: #493e2e;
+  text-shadow: 0 1px 3px rgba(255, 253, 246, 0.9);
+}
+
+/* 見出し・文章・代表者名を左側に配置 */
+.greeting-message > * {
+  width: 58%;
+  max-width: 42em;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* スマートフォンでは文章の幅を広くする */
+@media (max-width: 768px) {
+  .greeting-message {
+    padding: 32px 20px;
+
+    /* 文章が写真に重なっても読めるように薄くする */
+    background-image:
+      linear-gradient(
+        rgba(255, 253, 246, 0.88),
+        rgba(255, 253, 246, 0.88)
+      ),
+      url("../images/takaaki.jpg");
+  }
+
+  .greeting-message > * {
+    width: 100%;
+  }
+}
