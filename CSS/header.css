@@ -475,10 +475,10 @@ html.menu-is-open body {
 #site-menu nav > a:nth-child(1) {
   background-image:
     linear-gradient(
-      rgba(255, 253, 240, 0.48),
-      rgba(255, 253, 240, 0.48)
+      rgba(255, 253, 240, 0.28),
+      rgba(255, 253, 240, 0.28)
     ),
-    url("../images/menu-home.jpg");
+    url("../images/menu1.jpg");
 }
 
 
@@ -489,10 +489,10 @@ html.menu-is-open body {
 #site-menu nav > .menu-branch:nth-child(2) > summary {
   background-image:
     linear-gradient(
-      rgba(255, 253, 240, 0.48),
-      rgba(255, 253, 240, 0.48)
+      rgba(255, 253, 240, 0.28),
+      rgba(255, 253, 240, 0.28)
     ),
-    url("../images/menu-entry.jpg");
+    url("../images/menu2.jpg");
 }
 
 
@@ -503,10 +503,10 @@ html.menu-is-open body {
 #site-menu nav > a:nth-child(3) {
   background-image:
     linear-gradient(
-      rgba(255, 253, 240, 0.48),
-      rgba(255, 253, 240, 0.48)
+      rgba(255, 253, 240, 0.28),
+      rgba(255, 253, 240, 0.28)
     ),
-    url("../images/menu-support.jpg");
+    url("../images/menu3.jpg");
 }
 
 
@@ -517,10 +517,10 @@ html.menu-is-open body {
 #site-menu nav > a:nth-child(4) {
   background-image:
     linear-gradient(
-      rgba(255, 253, 240, 0.48),
-      rgba(255, 253, 240, 0.48)
+      rgba(255, 253, 240, 0.28),
+      rgba(255, 253, 240, 0.28)
     ),
-    url("../images/menu-report.jpg");
+    url("../images/menu4.jpg");
 }
 
 
@@ -531,10 +531,10 @@ html.menu-is-open body {
 #site-menu nav > a:nth-child(5) {
   background-image:
     linear-gradient(
-      rgba(255, 253, 240, 0.48),
-      rgba(255, 253, 240, 0.48)
+      rgba(255, 253, 240, 0.28),
+      rgba(255, 253, 240, 0.28)
     ),
-    url("../images/menu-contact.jpg");
+    url("../images/menu5.jpg");
 }
 
 
